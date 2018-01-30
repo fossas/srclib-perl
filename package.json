@@ -1,0 +1,42 @@
+{
+  "name": "srclib-perl",
+  "version": "0.0.1",
+  "description": "Perl source analysis toolchain for srclib",
+  "main": "index.js",
+  "bin": {
+    "srclib-dotnet": "./.bin/srclib-dotnet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fossas/srclib-perl"
+  },
+  "keywords": [
+    "srclib",
+    "perl",
+    "cpan"
+  ],
+  "author": "Alex Nuccio <alex@tldrlegal.com>",
+  "homepage": "https://github.com/fossas/srclib-perl",
+  "dependencies": {
+    "async": "^1.5.2",
+    "bluebird": "^3.3.5",
+    "commander": "^2.13.0",
+    "glob": "^4.0.6",
+    "iconv-lite": "^0.4.13",
+    "is-utf8": "^0.2.1",
+    "js-yaml": "^3.10.0",
+    "npm": "^1.4.21",
+    "strip-bom": "^2.0.0",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.16"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

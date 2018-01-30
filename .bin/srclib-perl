@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+// overall plan: https://witeboard.com/23562970-023d-11e8-8a7d-a99df8aed6ff
+
+var parser = require('commander')
+var determine = require('../lib/findPackages')
+//var type = require('../lib/buildTypes')
+var utils = require('../lib/cpanutils')
+var _ = require('underscore')
+
+
+parser
+  .option('repo', {
+    help: 'repository URI'
+  })
+  .option('subdir', {
+    help: 'subdirectory in repository'
+  })
+  .callback(function (opts) {
+    determine('.', [])
+  }).then(function( package_units ) {
+    if(!package_units || _isEmpty(package_units)) {
+      console.log(JSON.stringify([], null, 2))
+      return
+    }
+    // convert the findings from the utils to source unit
+    var src_units = _.map(package_units, function(pkg) {
+      return {
+        // Still @TODO
+        Name: null,
+        Type: null,
+        Version: null, 
+        Files: null,
+        Dependencies: null,
+        Ops: {depresolve: null, graph: null},
+        Config: {}
+      }
+    })
+
+    console.log(JSON.stringify(src_units, null, 2))
+  }).catch( function (err) {
+    console.error('Scanning for cpan modules failed: ', err.stack || err)
+    process.exit(1)
+  })
+parser.parse()
