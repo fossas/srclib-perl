@@ -3,7 +3,6 @@
 
 var parser = require('commander')
 var determine = require('../lib/findPackages')
-//var type = require('../lib/buildTypes')
 var utils = require('../lib/cpanutils')
 var _ = require('underscore')
 
