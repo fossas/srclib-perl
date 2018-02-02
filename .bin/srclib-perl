@@ -2,7 +2,7 @@
 // overall plan: https://witeboard.com/23562970-023d-11e8-8a7d-a99df8aed6ff
 
 var parser = require('commander')
-var determine = require('../lib/findPackages')
+var findPackages = require('../lib/findPackages')
 var utils = require('../lib/cpanutils')
 var _ = require('underscore')
 
@@ -15,29 +15,30 @@ parser
     help: 'subdirectory in repository'
   })
   .callback(function (opts) {
-    determine('.', [])
-  }).then(function( package_units ) {
-    if(!package_units || _isEmpty(package_units)) {
-      console.log(JSON.stringify([], null, 2))
-      return
-    }
-    // convert the findings from the utils to source unit
-    var src_units = _.map(package_units, function(pkg) {
-      return {
-        // Still @TODO
-        Name: null,
-        Type: null,
-        Version: null, 
-        Files: null,
-        Dependencies: null,
-        Ops: {depresolve: null, graph: null},
-        Config: {}
+    findPackages.determine('.', []) // TODO: 
+    .then(function( package_units ) {
+      if(!package_units || _.isEmpty(package_units)) {
+        console.log(JSON.stringify([], null, 2))
+        return
       }
+      // convert the findings from the utils to source unit
+      var src_units = _.map(package_units, function(pkg) {
+        return {
+          // Still @TODO
+          Name: pkg['id'],
+          Type: 'CPANModule',
+          Version: pkg['version'], 
+          Files: pkg['filePath'],
+          Dependencies: pkg['dependencies'],
+          Ops: {depresolve: null, graph: null},
+          Config: {}
+        }
+      })
+      console.log(JSON.stringify(src_units, null, 2))
+    }).catch( function (err) {
+      console.error('Scanning for cpan modules failed: ', err.stack || err)
+      process.exit(1)
     })
-
-    console.log(JSON.stringify(src_units, null, 2))
-  }).catch( function (err) {
-    console.error('Scanning for cpan modules failed: ', err.stack || err)
-    process.exit(1)
   })
+
 parser.parse()
