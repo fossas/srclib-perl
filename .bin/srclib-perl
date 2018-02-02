@@ -3,18 +3,18 @@
 
 var parser = require('commander')
 var findPackages = require('../lib/findPackages')
-var utils = require('../lib/cpanutils')
+var utils = require('../lib/utils')
 var _ = require('underscore')
 
 
-parser
+parser.command('scan')
   .option('repo', {
     help: 'repository URI'
   })
   .option('subdir', {
     help: 'subdirectory in repository'
   })
-  .callback(function (opts) {
+  .action(function (dir, cmd) {
     findPackages.determine('.', []) // TODO: 
     .then(function( package_units ) {
       if(!package_units || _.isEmpty(package_units)) {
@@ -29,6 +29,7 @@ parser
           Type: 'CPANModule',
           Version: pkg['version'], 
           Files: pkg['filePath'],
+          Dir: '.',
           Dependencies: pkg['dependencies'],
           Ops: {depresolve: null, graph: null},
           Config: {}
@@ -41,4 +42,4 @@ parser
     })
   })
 
-parser.parse()
+parser.parse(process.argv)
