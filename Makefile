@@ -6,7 +6,7 @@ deps:
 	cpanm -n ExtUtils::MakeMaker
 	cpanm -n Module::Install::CPANfile
 	cpanm -n CPAN::Meta::Spec
-	cpanm -n Module::Build ::Pluggable::CPANfile
+	cpanm -n Module::Build::Pluggable::CPANfile
 	cpanm -n Dist::Zilla
 	cpanm -n Dist::Zilla::Plugin::Git
 	cpanm -n Dist::Zilla::Plugin::Prereqs::FromCPANfile
