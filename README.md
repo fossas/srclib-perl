@@ -1,16 +1,25 @@
-# srclib-dotnet
+# srclib-perl
 
-You need node.js and NPM installed
+You need node.js and NPM installed. Read https://www.notion.so/fossa/Perl-Language-Integration-c2d2548fde6447d9b51893fb7aa39796 for an overview
 
 ##Assumptions Made
 
-* All files under directories with the name “test” or “tests” will be ignored
-* If the XML files being read are not utf-8 encoding, we assume they are UTF-16LE, and will attempt to convert
-* If a .csproj/.xproj file is found, and there is no packages.config/project.json file in the same directory, then this will be read in as a src unit
-* If a .nuspec file is found, and there is no .csproj/.xproj file in the same directory, then we scan this and create a src unit
-* Any packages.config/project.json file found will be added as a src unit
+Several perl modules need to be installed. 
 
+- install perl, which comes with cpan
+- `cpan App::cpanminus`
+- `cpanm inc::Module::Install`
+- `cpanm Module::Build::Tiny`
+- `cpanm ExtUtils::MakeMaker`
+- `cpanm Module::Install::CPANfile`
+- `cpanm Dist::Milla`
+- `cpanm CPAN::Meta::Spec`
+- `cpanm Dist::Milla`
+- `cpanm Module::Build::Pluggable::CPANfile`
+- `cpanm Minilla`
+- `cpanm Dist::Zilla::Plugin::Prereqs::FromCPANfile`
 
 ##TODO
 
-Add scanning for NuGet.config file to see the package sources we need to explore
+- private repositories
+- integrate with Carton
