@@ -6,7 +6,6 @@ deps:
 	cpanm Module::Build::Tiny
 	cpanm ExtUtils::MakeMaker
 	cpanm Module::Install::CPANfile
-	cpanm Dist::Milla
 	cpanm CPAN::Meta::Spec
 	cpanm Dist::Milla
 	cpanm Module::Build::Pluggable::CPANfile
