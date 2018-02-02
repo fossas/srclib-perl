@@ -1,9 +1,6 @@
 deps:
 
 	npm install --ignore-scripts --production
-	apt-get update
-	apt-get install build-essential
-	apt-get install perl
 	cpan App::cpanminus
 	cpanm inc::Module::Install
 	cpanm Module::Build::Tiny
