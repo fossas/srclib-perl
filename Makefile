@@ -10,5 +10,6 @@ deps:
 	cpanm -n Dist::Milla
 	cpanm -n Module::Build::Pluggable::CPANfile
 	cpanm -n Minilla
+	cpanm -n Dist::Zilla
 	cpanm -n Dist::Zilla::Plugin::Prereqs::FromCPANfile
 	cpanm -n Module::Build
