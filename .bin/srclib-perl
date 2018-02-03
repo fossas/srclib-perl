@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // overall plan: https://witeboard.com/23562970-023d-11e8-8a7d-a99df8aed6ff
 
-var parser = require('commander')
 var child_process = require('child_process')
 var _ = require('underscore')
+var parser = require('nomnom')
 
 var findPackages = require('../lib/findPackages')
 var utils = require('../lib/utils')
@@ -16,8 +16,8 @@ parser.command('scan')
   .option('subdir', {
     help: 'subdirectory in repository'
   })
-  .action(function (dir, cmd) {
-    findPackages.determine('.', []) // TODO: 
+  .callback(function (opts) {
+    findPackages.determine('.', []) // TODO: ignores dir
     .then(function( package_units ) {
       if(!package_units || _.isEmpty(package_units)) {
         console.log(JSON.stringify([], null, 2))
@@ -28,7 +28,7 @@ parser.command('scan')
         return {
           // Still @TODO
           Name: pkg['id'],
-          Type: 'CPANModule',
+          Type: 'CPANPackage',
           Version: pkg['version'], 
           Files: pkg['filePath'],
           Dir: '.',
@@ -55,4 +55,4 @@ parser.command('scan')
     })
   })
 
-parser.parse(process.argv)
+parser.parse()

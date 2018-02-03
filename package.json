@@ -20,7 +20,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "bluebird": "^3.5.1",
-    "commander": "^2.13.0",
+    "nomnom": "^1.8.1",
     "glob": "^4.0.6",
     "iconv-lite": "^0.4.13",
     "is-utf8": "^0.2.1",
