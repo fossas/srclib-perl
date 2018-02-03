@@ -2,9 +2,11 @@
 // overall plan: https://witeboard.com/23562970-023d-11e8-8a7d-a99df8aed6ff
 
 var parser = require('commander')
+var child_process = require('child_process')
+var _ = require('underscore')
+
 var findPackages = require('../lib/findPackages')
 var utils = require('../lib/utils')
-var _ = require('underscore')
 
 
 parser.command('scan')
@@ -36,6 +38,17 @@ parser.command('scan')
         }
       })
       console.log(JSON.stringify(src_units, null, 2))
+    }).then(function cleanup() {
+      return new Promise(function(resolve, reject) {
+        child_process.exec('rm -f Makefile Build', function(err, stdout){
+          if (err||stdout){
+            console.error(err||stdout)
+            reject(err||stdout)
+          } else {
+            resolve(stdout)
+          }
+        })
+      })
     }).catch( function (err) {
       console.error('Scanning for cpan modules failed: ', err.stack || err)
       process.exit(1)

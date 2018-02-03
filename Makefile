@@ -13,3 +13,4 @@ deps:
 	cpanm -n Dist::Milla
 	cpanm -n Minilla
 	cpanm -n Module::Build
+	cpanm -n Perl::PrereqScanner
