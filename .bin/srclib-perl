@@ -40,7 +40,7 @@ parser.command('scan')
       console.log(JSON.stringify(src_units, null, 2))
     }).then(function cleanup() {
       return new Promise(function(resolve, reject) {
-        child_process.exec('rm -f Makefile Build', function(err, stdout){
+        child_process.exec('rm -f Makefile Build scan_perl_prereqs_output.txt tempmakeoutput.txt tempbuildoutput.txt tempDepsList.txt', function(err, stdout){
           if (err||stdout){
             console.error(err||stdout)
             reject(err||stdout)
