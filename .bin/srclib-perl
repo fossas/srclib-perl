@@ -30,7 +30,7 @@ parser.command('scan')
           Name: pkg['id'],
           Type: 'CPANPackage',
           Version: pkg['version'], 
-          Files: pkg['filePath'],
+          Files: pkg['files'],
           Dir: '.',
           Dependencies: pkg['dependencies'],
           Ops: {depresolve: null, graph: null},
