@@ -33,6 +33,7 @@ parser.command('scan')
           Dir: '.',
           Dependencies: pkg['dependencies'],
           Ops: {depresolve: null, graph: null},
+          Data: pkg,
           Config: {}
         }
       })

@@ -2,7 +2,7 @@
 
 You need node.js and NPM installed. Read https://www.notion.so/fossa/Perl-Language-Integration-c2d2548fde6447d9b51893fb7aa39796 for an overview
 
-##Assumptions Made
+## Assumptions Made
 
 Several perl modules need to be installed. 
 
@@ -21,7 +21,7 @@ Look at http://blogs.perl.org/users/neilb/2017/05/specifying-dependencies-for-yo
 - `cpanm Dist::Zilla::Plugin::Prereqs::FromCPANfile`
 - `cpanm Module::Build`
 
-##TODO
+## TODO
 
 - private repositories
 - integrate with Carton
