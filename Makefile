@@ -5,6 +5,7 @@ deps:
 	cpanm -n Module::Build::Tiny
 	cpanm -n ExtUtils::MakeMaker
 	cpanm -n Module::Install::CPANfile
+	cpanm -n Module::CPANfile
 	cpanm -n CPAN::Meta::Spec
 	cpanm -n Module::Build::Pluggable::CPANfile
 	cpanm -n Dist::Zilla
