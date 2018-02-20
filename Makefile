@@ -1,6 +1,7 @@
 deps:
 	npm install --ignore-scripts --production
 	cpan App::cpanminus
+	cpanm -n Time::Out
 	cpanm -n JSON
 	cpanm -n inc::Module::Install
 	cpanm -n Module::Build::Tiny
