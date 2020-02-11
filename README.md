@@ -1,4 +1,6 @@
 # srclib-perl
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffossas%2Fsrclib-perl.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffossas%2Fsrclib-perl?ref=badge_shield)
+
 
 You need node.js and NPM installed. Read https://www.notion.so/fossa/Perl-Language-Integration-c2d2548fde6447d9b51893fb7aa39796 for an overview
 
@@ -25,3 +27,7 @@ Look at http://blogs.perl.org/users/neilb/2017/05/specifying-dependencies-for-yo
 
 - private repositories
 - integrate with Carton
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffossas%2Fsrclib-perl.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffossas%2Fsrclib-perl?ref=badge_large)
